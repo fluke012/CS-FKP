@@ -43,3 +43,20 @@ router.post('/contacts', (req, res) => {
     contactList.push(newContact)
     res.status(201).json(newContact)
 })
+
+router.put('/contacts/:id', (req, res) => {
+    let contact = req.body
+    let id = req.params.id
+    contactList[id] = contact
+    res.status(200).json()
+})
+
+router.delete('/contacts/:id', (req, res) => {
+    let id = req.params.id
+    contactList.splice(id, 1)
+    res.status(204).json()
+})
+
+
+
+module.exports = router
